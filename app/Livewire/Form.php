@@ -40,7 +40,7 @@ class Form extends Component
         Storage::put($filePath, json_encode($validated));
 
         // give control back to map
-        $this->dispatch('switch-form', 'Area "' . $validated['name'] . '" created!');
+        $this->dispatch('hide-form', 'Area "' . $validated['name'] . '" created!');
     }
 
     public function render() :View

@@ -19,15 +19,23 @@ class Map extends Component
         $this->type = $type;
         $this->points = $points;
 
-        $this->switchForm(null);
+        $this->showForm();
     }
 
-    #[On('switch-form')]
+    #[On('hide-form')]
     // display or hide form with related message
-    public function switchForm(string|null $message): void
+    public function hideForm(string|null $message): void
     {   
         $this->message = $message;
-        $this->formStatus = !$this->formStatus;
+        $this->formStatus = false;
+    }
+
+    #[On('show-form')]
+    // display or hide form with related message
+    public function showForm(): void
+    {   
+        $this->message = null;
+        $this->formStatus = true;
     }
 
     public function render(): View
